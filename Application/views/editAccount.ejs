@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+  <div class="auction-form-box">
+    <form action="/edit-account" method="post">
+      <h1>Edit account information</h1>
+      <p class="error-message"> <%= error %> </p>
+      <input type="email" class="form-field" name="email" value="<%=email%>"><br>
+
+      <label for="currency"><strong>Currency: </strong></label>
+      <select class="currency-field" id="curreny">
+        <% currencies.forEach((currency)=>{ %>
+        <option><%= currency %></option>
+        <% }) %>
+      </select> <br />
+      <input class="form-currency" type="hidden" value="<%= currency %>" name="userCurrency"/>
+    
+      <input class="form-field" id="password-field" name="password" type="password" placeholder="new password" /><br />
+      <input class="password-checkbox" type="checkbox">Show password</input><br />
+
+      <button class="main-btn">Save changes</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+<footer>
+    <script src="/js/register.js"></script>
+</footer>
+
+</html>
+

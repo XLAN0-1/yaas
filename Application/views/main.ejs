@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+
+  <div class="auction-grid">
+    <% auctions.forEach((auction)=>{ %>
+    <div class="auction-item">
+      <a class="auction-title-link" href="/auctions/<%=auction._id%>">
+        <h1><strong><%= auction.title %></strong></h1>
+      </a>
+      <p><strong>Posted by:</strong> <%=auction.sellerName %></p>
+      <p><strong>Minimum price: <span class="auction-price"> <%=auction.currency%> <%=auction.formattedPrice %></span></strong> </p>
+      <p><strong>Description:</strong> <%= auction.description %></p>
+
+      <p><strong>Deadline: </strong><span class="auction-deadline" value="<%=auction.deadline%>"></span></p>
+    </div>
+    <% }); %>
+
+  </div>
+
+
+</body>
+
+<%- include("partials/footer") %>
+
+</html>

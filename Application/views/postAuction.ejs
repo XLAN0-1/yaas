@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+  <div class="auction-form-box">
+    <form action="/create-auction" method="post">
+      <h1>Create a new Auction</h1>
+      <p class="error-message"> <%= error %> </p>
+      <label for="aucDeadline">Title: </label><br>
+      <input class="form-field" type="text" name="title" id="aucTitle" value="<%= title %>"><br>
+      <label for="aucDescription">Description: </label><br>
+      <textarea name="description" class="auction-description" id="aucDescription"><%= description %></textarea><br>
+      <label for="aucMinPrice">Minimum price</label><br>
+      <input name="minPrice" class="form-field" type="number" id="aucMinPrice" value="<%= price %>"><br>
+      <label for="aucDeadlineDate">Deadline Date: </label><br>
+      <input name="deadline" class="form-field" type="date" id="aucDeadlineDate" value="<%= deadlineDate%>"><br>
+      <label for="aucDeadlineTime">Deadline Time: </label><br>
+      <input name="deadlineTime" class="form-field" type="time" id="aucDeadlineTime" value="<%= deadlineTime %>"><br>
+
+      <button class="main-btn">Post Auction</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>

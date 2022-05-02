@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+
+  <div class="admin-table">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Seller</th>
+        <th>Active</th>
+        <th>Confirmed</th>
+        <th>Banned</th>
+      </tr>
+
+      <% auctions.forEach( (auction) => { %>
+      <tr>
+        <td> <a class="auction-title-link" href="/auctions/<%=auction._id%>"><%= auction._id %></a></td>
+        <td> <%= auction.title %> </td>
+        <td> <%= auction.sellerName %> </td>
+        <td> <%= auction.isActive %> </td>
+        <td> <%= auction.isConfirmed %> </td>
+        <td> <%= auction.isBanned %> </td>
+        <td>
+          <form action="/ban" method="post">
+            <input type="hidden" name="id" value="<%= auction._id%>">
+            <button type="submit">BAN AUCTION</button>
+          </form>
+        </td>
+      </tr>
+
+      <% }) %>
+
+
+
+    </table>
+
+  </div>
+
+
+</body>
+
+<%- include("partials/footer") %>
+
+</html>

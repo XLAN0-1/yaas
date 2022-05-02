@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+  <div>
+      <% bids.forEach((bid)=>{ %>
+        <p> <%= bid.email %>      <%= currency %><%= bid.bid %> </p>
+      <% }) %>
+  </div>
+
+</body>
+
+</html>

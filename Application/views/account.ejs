@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+
+  <%- include("appbar") %>
+
+  <div class="account-grid">
+    <div class="account-auctions">
+      <div>
+        <h1>My Auctions</h1>
+      </div>
+      <% auctions.forEach(auction => { %>
+        <div>
+        <a class="account-auctions-link" href="/auctions/<%=auction._id%>"> <%= auction.title%> </a>
+        <a class="account-auctions-link" href="/edit/<%=auction._id%>"> EDIT </a>
+      </div>
+      <% }) %>
+
+    </div>
+    <div class="account-auctions">
+        <a href="/create-auction">CREATE AUCTION</a>
+        <a href="/edit-account">EDIT ACCOUNT INFO</a>
+    </div>
+    <div class="create-auction"></div>
+  </div>
+
+
+</body>
+
+<%- include("partials/footer") %>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+  <div class="auction-form-box">
+    <form action="/edit-auction" method="post">
+      <h1></h1>
+      <label for="aucDescription">Description: </label><br>
+      <textarea name="description" class="auction-description" id="aucDescription"><%= description %></textarea><br>
+      <input type="hidden" name="id" value="<%= id %>" />
+      <button class="main-btn">Save changes</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>

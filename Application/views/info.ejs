@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+  <%- include("appbar") %>
+
+  <div class="bid-details-grid">
+    <div class="bid-detials-item">
+
+      <h1><strong><%= auction.title %></strong></h1>
+      <p><strong>Posted by:</strong> <%=auction.sellerName %></p>
+      <p><strong>Minimum price: <span class="auction-price"> <%=userCurrency%> <%=price %></span></strong> </p>
+      <p><strong>Description:</strong> <%= auction.description %></p>
+      <p><strong>Deadline: </strong><span class="auction-deadline" value="<%=auction.deadline%>"></span></p>
+    </div>
+    <div class="bid-details-item">
+      <p>Winning bid: <strong><span class="auction-price"> <%=userCurrency%> <%= winningBid %></span></strong></p>
+      <form action="/bid" method="post">
+        <label for="bidPrice"><%= userCurrency%></label>
+        <input id="bidPrice" name="bid" type="number" />
+        <input type="hidden" name="id" value="<%= auction._id%>" />
+        <button class="secondary-btn">PLACE BID</button>
+      </form>
+      <a href="/auctions/<%=auction._id%>/bids">Bid history</a>
+    </div>
+  </div>
+
+</body>
+
+<%- include("partials/footer") %>
+
+</html>

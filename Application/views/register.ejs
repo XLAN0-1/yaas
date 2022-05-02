@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header") %>
+
+<body>
+
+  <div class="view-port">
+    <form class="login-form" action="/register" method="post">
+      <h1>Create a <span class="app-name">y<strong class="aas">AAS!</strong></span> account</h1>
+      <p class="error-message"> <%= error %> </p>
+      <input class="form-field" name="fullName" type="text" placeholder="Full Name" value="<%= name %>"><br />
+      <input class="form-field" name="userEmail" type="Email" placeholder="Email" value="<%= email %>"/><br />
+
+      <label for="currency"><strong>Currency: </strong></label>
+      <select class="currency-field" id="curreny">
+        <% currencies.forEach((currency)=>{ %>
+        <option><%= currency %></option>
+        <% }) %>
+      </select> <br />
+      <input class="form-currency" type="hidden" value="EUR" name="userCurrency"/>
+
+      <input class="form-field" id="password-field" type="password" name="password" placeholder="Password" /><br />
+      <input class="password-checkbox" type="checkbox">Show password</input><br />
+
+
+      <button type="submit" class="sign-up-btn main-btn">Sign Up</button>
+
+      <p>Already have an account?<a href="/login">Sign in</a></p>
+
+    </form>
+  </div>
+
+</body>
+
+<%- include("partials/registerFooter") %>
+
+</html>
